@@ -15,6 +15,7 @@ contributors:
   - dasarianudeep
   - byzyk
   - kennetvu
+  - EugeneHlushko
 ---
 
 Out of the box, webpack won't require you to use a configuration file. However, it will assume the entry point of your project is `src/index` and will output the result in `dist/main.js` minified and optimized for production.
@@ -403,3 +404,39 @@ Want to rapidly generate webpack configuration file for your project requirement
 [Generate Custom Webpack Configuration](https://generatewebpackconfig.netlify.com/) is an interactive portal you can play around by selecting custom webpack configuration options tailored for your frontend project. It automatically generates a minimal webpack configuration based on your selection of loaders/plugins, etc.
 
 [Visual tool for creating webpack configs](https://webpack.jakoblind.no/) is an online configuration tool for creating webpack configuration file where you can select any combination of features you need. It also generates a full example project based on your webpack configs.
+
+Or use [webpack-cli's `init` command](https://github.com/webpack/webpack-cli/tree/master/packages/init#cli-via-webpack-cli) that will ask you a couple of questions before creating a configuration file.
+
+```bash
+npx webpack-cli init
+```
+
+W> You might be promted to install `@webpack-cli/init` if it is not yet installed in the project or globally.
+
+T> After running `npx webpack-cli init` you might get more packages installed to your project depending on the choices you've made during configuration generation.
+
+```bash
+npx webpack-cli init
+
+ℹ INFO For more information and a detailed description of each question, have a look at https://github.com/webpack/webpack-cli/blob/master/INIT.md
+ℹ INFO Alternatively, run `webpack(-cli) --help` for usage info.
+
+? Will your application have multiple bundles? No
+? Which module will be the first to enter the application? [default: ./src/index] 
+? Which folder will your generated bundles be in? [default: dist]: 
+? Will you be using ES2015? Yes
+? Will you use one of the below CSS solutions? No
+
++ babel-plugin-syntax-dynamic-import@6.18.0
++ uglifyjs-webpack-plugin@2.0.1
++ webpack-cli@3.2.3
++ @babel/core@7.2.2
++ babel-loader@8.0.4
++ @babel/preset-env@7.1.0
++ webpack@4.29.3
+added 124 packages from 39 contributors, updated 4 packages and audited 25221 packages in 7.463s
+found 0 vulnerabilities
+
+
+Congratulations! Your new webpack configuration file has been created!
+```
